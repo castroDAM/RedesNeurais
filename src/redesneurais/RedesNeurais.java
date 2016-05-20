@@ -5,6 +5,10 @@
  */
 package redesneurais;
 
+import Functions.*;
+import Functions.Enums.TypeFunct;
+import Neuronio.*;
+
 /**
  *
  * @author Douglas
@@ -15,7 +19,8 @@ public class RedesNeurais {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Neuronio neuronio = new Neuronio(2,TypeFunct.TanSig);
+        System.out.println(neuronio.toString());
     }
     
 }

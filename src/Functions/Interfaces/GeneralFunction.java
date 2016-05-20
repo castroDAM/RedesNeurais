@@ -12,5 +12,6 @@ package Functions.Interfaces;
 public interface GeneralFunction {
     
     double setPotencialGetOutput(double potencial);
+    String getNameFunction();
     
 }

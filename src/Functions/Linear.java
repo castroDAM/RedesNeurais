@@ -17,5 +17,11 @@ public class Linear implements GeneralFunction{
     public double setPotencialGetOutput(double potencial) {
         return potencial;
     }
+
+    @Override
+    public String getNameFunction() {
+        return "Linear";
+    }
+    
     
 }

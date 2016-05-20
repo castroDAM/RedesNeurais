@@ -27,5 +27,10 @@ public class Sigm implements GeneralFunction{
     public double setPotencialGetOutput(double potencial) {
         return (1/(1+Math.exp(-this.alpha*potencial)));
     }
+
+    @Override
+    public String getNameFunction() {
+        return "Sigmóide";
+    }
     
 }

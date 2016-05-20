@@ -17,5 +17,10 @@ public class TanHip implements GeneralFunction{
     public double setPotencialGetOutput(double potencial) {
         return Math.tanh(potencial);
     }
+
+    @Override
+    public String getNameFunction() {
+        return "Tangente Hiperbólica";
+    }
     
 }

@@ -15,12 +15,59 @@ import Functions.Enums.*;
  */
 public class Neuronio implements NeuronioInterface{
 
-    double PotencialDeAtivação = 0;
+    private double PotencialDeAtivação;
+    private double[] Pesos = null;
+    private int numEntradas;
     
-    GeneralFunction Function;
+    private GeneralFunction Function;
+
+    /**
+     * Método construtor do objeto Neurônio. Os Pesos são inicializados de forma aleatória e a função de ativação é Linear
+     * @param numEntradas Quantidade de Entradas que o neurônio receberá
+     */
+    public Neuronio(int numEntradas) {
+        this.numEntradas = numEntradas;
+        this.Pesos = new double[numEntradas];
+        for(int i=0; i<numEntradas; i++){
+            this.Pesos[i] = Math.random();
+        }
+        this.Function = TypeFunct.Linear.getFunction();
+    }
     
-    public Neuronio(TypeFunct funcAtiv) {
-        Function = funcAtiv.getFunction();
+    /**
+     * Método construtor do objeto Neurônio. Os Pesos são inicializados de forma aleatória
+     * @param numEntradas Quantidade de Entradas que o neurônio receberá
+     * @param Function Função de Ativação
+     */
+    public Neuronio(int numEntradas, TypeFunct Function) {
+        this.numEntradas = numEntradas;
+        this.Pesos = new double[numEntradas];
+        for(int i=0; i<numEntradas; i++){
+            this.Pesos[i] = Math.random();
+        }
+        this.Function = Function.getFunction();
+    }
+    
+    /**
+     * Método construtor do objeto Neurônio.
+     * @param numEntradas Quantidade de Entradas que o neurônio receberá
+     * @param Pesos Pesos Sinápticos Iniciais
+     * @param Function Função de Ativação
+     */
+    public Neuronio(int numEntradas, double[] Pesos, TypeFunct Function) {
+        this.numEntradas = numEntradas;
+        this.Pesos = Pesos;
+        this.Function = Function.getFunction();
+    }
+    
+    @Override
+    public String toString(){
+        String retorno = "";
+        retorno += "Neurônio Criado";
+        retorno += "\nNumero de entradas = " + this.numEntradas;
+        retorno += "\nFunção de Ativação = " + Function.getNameFunction();
+        
+        return retorno;
     }
     
     @Override
