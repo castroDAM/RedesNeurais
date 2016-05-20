@@ -13,7 +13,7 @@ import Functions.Interfaces.*;
  *
  * @author Douglas
  */
-public enum Functions {
+public enum TypeFunct {
     Linear {
 
         @Override

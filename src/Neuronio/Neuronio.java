@@ -6,6 +6,8 @@
 package Neuronio;
 
 import Neuronio.Interfaces.NeuronioInterface;
+import Functions.Interfaces.*;
+import Functions.Enums.*;
 
 /**
  *
@@ -13,8 +15,13 @@ import Neuronio.Interfaces.NeuronioInterface;
  */
 public class Neuronio implements NeuronioInterface{
 
-    double lastOutput;
-    double output = 0;
+    double PotencialDeAtivação = 0;
+    
+    GeneralFunction Function;
+    
+    public Neuronio(TypeFunct funcAtiv) {
+        Function = funcAtiv.getFunction();
+    }
     
     @Override
     public void setInputs(double[] entradas, double[] pesos) {
@@ -33,7 +40,7 @@ public class Neuronio implements NeuronioInterface{
 
     @Override
     public double getOutput() {
-        return this.output;
+        return Function.setPotencialGetOutput(this.PotencialDeAtivação);
     }
     
 }
