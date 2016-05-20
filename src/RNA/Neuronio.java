@@ -18,6 +18,7 @@ public class Neuronio implements NeuronioInterface{
     private double PotencialDeAtivação;
     private double[] Pesos = null;
     private int numEntradas;
+    private int ID;
     
     private GeneralFunction Function;
 
@@ -28,6 +29,7 @@ public class Neuronio implements NeuronioInterface{
     public Neuronio(int numEntradas) {
         this.numEntradas = numEntradas;
         this.Pesos = new double[numEntradas];
+        this.ID = -1;
         for(int i=0; i<numEntradas; i++){
             this.Pesos[i] = Math.random();
         }
@@ -39,9 +41,10 @@ public class Neuronio implements NeuronioInterface{
      * @param numEntradas Quantidade de Entradas que o neurônio receberá
      * @param Function Função de Ativação
      */
-    public Neuronio(int numEntradas, TypeFunct Function) {
+    public Neuronio(int numEntradas, TypeFunct Function, int ID) {
         this.numEntradas = numEntradas;
         this.Pesos = new double[numEntradas];
+        this.ID = ID;
         for(int i=0; i<numEntradas; i++){
             this.Pesos[i] = Math.random();
         }
@@ -57,13 +60,14 @@ public class Neuronio implements NeuronioInterface{
     public Neuronio(int numEntradas, double[] Pesos, TypeFunct Function) {
         this.numEntradas = numEntradas;
         this.Pesos = Pesos;
+        this.ID = -1;
         this.Function = Function.getFunction();
     }
     
     @Override
     public String toString(){
         String retorno = "";
-        retorno += "Neurônio Criado";
+        retorno += "Neurônio " + this.ID;
         retorno += "\nNumero de entradas = " + this.numEntradas;
         retorno += "\nFunção de Ativação = " + Function.getNameFunction();
         

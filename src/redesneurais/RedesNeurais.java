@@ -7,6 +7,8 @@ package redesneurais;
 
 import RNA.Camada;
 import Functions.Enums.TypeFunct;
+import RNA.MLP;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,11 +20,28 @@ public class RedesNeurais {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Camada camada = new Camada(2, 5, TypeFunct.Linear);
-        for(int i=0; i<camada.getNumNeuronio(); i++){
-            System.out.println("");
-            System.out.println(camada.getNeuronioByIndex(i).toString());
-        }
+//        int entradas = 4;
+//        int camadas = 4;
+//        int[] neuronios = {1,2,3,4};
+//        ArrayList<TypeFunct> func = new ArrayList<>();
+//        
+//        func.add(TypeFunct.Sign);
+//        func.add(TypeFunct.Sigm);
+//        func.add(TypeFunct.TanHip);
+//        func.add(TypeFunct.Linear);
+//        
+//        MLP mlp = new MLP(entradas, camadas, neuronios, func);
+//        System.out.println(mlp.toString());
+        
+        int entradas = 4;
+        int camadas = 1;
+        int[] neuronios = {7};
+        ArrayList<TypeFunct> func = new ArrayList<>();
+        
+        func.add(TypeFunct.Linear);
+        
+        MLP mlp = new MLP(entradas, camadas, neuronios, func);
+        System.out.println(mlp.toString());
     }
     
 }

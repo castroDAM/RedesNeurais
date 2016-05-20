@@ -19,16 +19,18 @@ public class Camada implements NeuronioInterface{
     ArrayList<Neuronio> listOfNeuronios = new ArrayList<>();
     
     int numEntradas;
+    int ID;
     int numNeuronios;
     TypeFunct FcnAtv;
 
-    public Camada(int numEntradas, int numNeuronios, TypeFunct FcnAtv) {
+    public Camada(int numEntradas, int numNeuronios, TypeFunct FcnAtv, int ID) {
         this.numEntradas = numEntradas;
         this.numNeuronios = numNeuronios;
         this.FcnAtv = FcnAtv;
+        this.ID = ID;
         
         for(int i=0; i<this.numNeuronios; i++){
-            this.listOfNeuronios.add(new Neuronio(numEntradas, FcnAtv));
+            this.listOfNeuronios.add(new Neuronio(numEntradas, FcnAtv, i));
         }
     }
     
@@ -58,6 +60,18 @@ public class Camada implements NeuronioInterface{
         for(int i=0; i<retorno.length; i++){
             retorno[i] = this.listOfNeuronios.get(i).getOutput()[0];
         }
+        return retorno;
+    }
+    
+    @Override
+    public String toString(){
+        String retorno = "\n";
+        retorno += "----------------- Camada " + this.ID + " -----------------";
+        
+        for(int i=0; i<listOfNeuronios.size(); i++){
+            retorno += "\n\t" + listOfNeuronios.get(i).toString();
+        }
+        
         return retorno;
     }
     

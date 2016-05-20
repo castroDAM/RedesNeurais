@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package RNA.Interfaces;
+package RNA;
 
 import Functions.Enums.TypeFunct;
 import RNA.Camada;
+import RNA.Interfaces.NeuronioInterface;
 import java.util.ArrayList;
 
 /**
@@ -28,10 +29,10 @@ public class MLP implements NeuronioInterface{
         this.numNeuronioCamada = numNeuronioCamada;
         this.numSaidas = numNeuronioCamada[numCamadas-1];
         
-        this.listOfCamadas.add(new Camada(this.numEntradas, this.numNeuronioCamada[0], FcnPorCamada.get(0)));
+        this.listOfCamadas.add(new Camada(this.numEntradas, this.numNeuronioCamada[0], FcnPorCamada.get(0),0));
 
         for (int i = 1; i < this.numCamadas; i++) {
-            this.listOfCamadas.add(new Camada(this.listOfCamadas.get(i - 1).getNumNeuronio(), this.numNeuronioCamada[i], FcnPorCamada.get(i)));
+            this.listOfCamadas.add(new Camada(this.listOfCamadas.get(i - 1).getNumNeuronio(), this.numNeuronioCamada[i], FcnPorCamada.get(i),i));
         }
     }
     
@@ -49,6 +50,15 @@ public class MLP implements NeuronioInterface{
     @Override
     public double[] getOutput() {
         return this.listOfCamadas.get(this.numCamadas-1).getOutput();
+    }
+    
+    @Override
+    public String toString(){
+        String retorno = "";
+        for(int i=0; i<listOfCamadas.size(); i++){
+            retorno += listOfCamadas.get(i).toString();
+        }
+        return retorno;
     }
     
 }
