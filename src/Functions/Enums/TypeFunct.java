@@ -20,18 +20,25 @@ public enum TypeFunct {
         public GeneralFunction getFunction() {
             return new Linear();
         }
-    }, Sig {
+    }, Sigm {
 
         @Override
         public GeneralFunction getFunction() {
             return new Sigm();
         }
-    }, TanSig {
+    }, TanHip {
 
         @Override
         public GeneralFunction getFunction() {
             return new TanHip();
         }
+    }, Sign{
+
+        @Override
+        public GeneralFunction getFunction() {
+            return new Sign();
+        }
+        
     };
     
     public abstract GeneralFunction getFunction();

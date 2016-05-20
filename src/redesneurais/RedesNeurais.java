@@ -5,9 +5,8 @@
  */
 package redesneurais;
 
-import Functions.*;
+import RNA.Camada;
 import Functions.Enums.TypeFunct;
-import Neuronio.*;
 
 /**
  *
@@ -19,8 +18,11 @@ public class RedesNeurais {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Neuronio neuronio = new Neuronio(2,TypeFunct.TanSig);
-        System.out.println(neuronio.toString());
+        Camada camada = new Camada(2, 5, TypeFunct.Linear);
+        for(int i=0; i<camada.getNumNeuronio(); i++){
+            System.out.println("");
+            System.out.println(camada.getNeuronioByIndex(i).toString());
+        }
     }
     
 }
