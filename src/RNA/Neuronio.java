@@ -21,25 +21,12 @@ public class Neuronio implements NeuronioInterface{
     private int ID;
     
     private GeneralFunction Function;
-
-    /**
-     * Método construtor do objeto Neurônio. Os Pesos são inicializados de forma aleatória e a função de ativação é Linear
-     * @param numEntradas Quantidade de Entradas que o neurônio receberá
-     */
-    public Neuronio(int numEntradas) {
-        this.numEntradas = numEntradas;
-        this.Pesos = new double[numEntradas];
-        this.ID = -1;
-        for(int i=0; i<numEntradas; i++){
-            this.Pesos[i] = Math.random();
-        }
-        this.Function = TypeFunct.Linear.getFunction();
-    }
     
     /**
      * Método construtor do objeto Neurônio. Os Pesos são inicializados de forma aleatória
      * @param numEntradas Quantidade de Entradas que o neurônio receberá
      * @param Function Função de Ativação
+     * @param ID ID do Neuroônio
      */
     public Neuronio(int numEntradas, TypeFunct Function, int ID) {
         this.numEntradas = numEntradas;
