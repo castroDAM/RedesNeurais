@@ -11,6 +11,6 @@ package Neuronio.Interfaces;
  */
 public interface NeuronioInterface {
     
-    void setInputs(double[] entradas, double[] pesos);
-    double getOutput();
+    void setInputs(double[] entradas);
+    double[] getOutput();
 }

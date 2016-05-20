@@ -70,24 +70,34 @@ public class Neuronio implements NeuronioInterface{
         return retorno;
     }
     
+    /**
+     * 
+     * @param entradas Vetor de entrada do Neurônio.
+     */
     @Override
-    public void setInputs(double[] entradas, double[] pesos) {
+    public void setInputs(double[] entradas) {
         
-        if ( entradas.length > pesos.length ){
+        if ( entradas.length > this.Pesos.length ){
             System.err.println("Mais entradas do que pesos. As entradas que não tiverem um peso na posição correspondente terão o valor zero");
-        } else if ( entradas.length < pesos.length ){
+        } else if ( entradas.length < this.Pesos.length ){
             System.err.println("Mais Pesos do que entradas. Os pesos que não tiverem uma entrada na posição correspondente multiplicam uma entrada nula");
         }
         
         double PotencialDeAtivação = 0;
         for(int i=0; i<entradas.length; i++){
-            PotencialDeAtivação +=entradas[i]*pesos[i];
+            PotencialDeAtivação +=entradas[i]*this.Pesos[i];
         }
     }
 
+    /**
+     * 
+     * @return O resultado da função de ativação dada a última entrada armazenada no neurônio
+     */
     @Override
-    public double getOutput() {
-        return Function.setPotencialGetOutput(this.PotencialDeAtivação);
+    public double[] getOutput() {
+        double[] retorno = new double[1];
+        retorno[0] = Function.setPotencialGetOutput(this.PotencialDeAtivação);
+        return retorno;
     }
     
 }
