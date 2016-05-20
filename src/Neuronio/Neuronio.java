@@ -83,7 +83,6 @@ public class Neuronio implements NeuronioInterface{
             System.err.println("Mais Pesos do que entradas. Os pesos que não tiverem uma entrada na posição correspondente multiplicam uma entrada nula");
         }
         
-        double PotencialDeAtivação = 0;
         for(int i=0; i<entradas.length; i++){
             PotencialDeAtivação +=entradas[i]*this.Pesos[i];
         }
@@ -98,6 +97,14 @@ public class Neuronio implements NeuronioInterface{
         double[] retorno = new double[1];
         retorno[0] = Function.setPotencialGetOutput(this.PotencialDeAtivação);
         return retorno;
+    }
+    
+    public double[] getWeights(){
+        return this.Pesos;
+    }
+    
+    public void setWeights(double[] pesos){
+        this.Pesos = pesos;
     }
     
 }
