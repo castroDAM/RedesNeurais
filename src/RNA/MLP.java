@@ -61,6 +61,10 @@ public class MLP implements NeuronioInterface{
         return retorno;
     }
     
+    public Camada getCamada(int ID){
+        return this.listOfCamadas.get(ID);
+    }
+    
     /**
      * Retorna Um peso específico
      * @param Camada Camada em que o peso está

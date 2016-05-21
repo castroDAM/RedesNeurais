@@ -6,10 +6,8 @@
 package RNA;
 
 import Functions.Enums.TypeFunct;
-import Functions.Interfaces.GeneralFunction;
 import RNA.Interfaces.NeuronioInterface;
 import java.util.ArrayList;
-import java.util.Arrays;
         
 /**
  *

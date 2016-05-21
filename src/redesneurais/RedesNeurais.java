@@ -36,6 +36,17 @@ public class RedesNeurais {
         mlp.getWeightByIndex(2);
         mlp.getWeightByIndex(2, 2);
         mlp.getWeightByIndex(2, 2, 1);
+        
+        mlp.setWeightByIndex(2, 2, 1, -1);
+        double[] pesos = {1,2,3,4};
+        mlp.setWeightByIndex(2, 2, pesos);
+        
+        ArrayList pesosCamada = new ArrayList();
+        for(int i=0; i<mlp.getCamada(2).getNumNeuronio(); i++){
+            pesosCamada.add(pesos);
+        }
+        
+        mlp.setWeightByIndex(2, pesosCamada);
     }
     
 }

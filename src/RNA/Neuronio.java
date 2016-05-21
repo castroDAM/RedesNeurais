@@ -46,10 +46,10 @@ public class Neuronio implements NeuronioInterface{
      * @param Pesos Pesos Sinápticos Iniciais
      * @param Function Função de Ativação
      */
-    public Neuronio(int numEntradas, double[] Pesos, TypeFunct Function) {
+    public Neuronio(int numEntradas, double[] Pesos, TypeFunct Function, int ID) {
         this.numEntradas = numEntradas;
         this.Pesos = Pesos;
-        this.ID = -1;
+        this.ID = ID;
         this.Function = Function.getFunction();
     }
     
