@@ -9,6 +9,7 @@ import Functions.Enums.TypeFunct;
 import Functions.Interfaces.GeneralFunction;
 import RNA.Interfaces.NeuronioInterface;
 import java.util.ArrayList;
+import java.util.Arrays;
         
 /**
  *
@@ -73,6 +74,20 @@ public class Camada implements NeuronioInterface{
         }
         
         return retorno;
+    }
+    
+    /**
+     * Pegar os pesos sinápticos correspondentes a camada. A ordem do retorno é dado pelos neurônios. Ex: Uma camada com 4 neurônio e 2 entradas. O retorno 
+     * será dado na seguinte ordem : 2 Pesos do primeiro Neuronio, 2 Pesos do segundo neurônio, 2 Pesos do terceiro neurônio e 2 Pesos do quarto neurônio,  
+     * @return Pesos Sinápticos correspondentes da camada
+     */
+    public ArrayList getWeights(){
+        ArrayList pesos = new ArrayList();
+        for(int i=0; i<this.numNeuronios; i++){
+            pesos.add(this.listOfNeuronios.get(i).getWeights());
+        }
+        
+        return pesos;
     }
     
 }

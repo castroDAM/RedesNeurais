@@ -61,4 +61,16 @@ public class MLP implements NeuronioInterface{
         return retorno;
     }
     
+    public double getWeightByIndex(int Camada, int neuronio, int entrada){
+        return this.listOfCamadas.get(Camada).getNeuronioByIndex(neuronio).getWeightByInput(entrada);
+    }
+    
+    public ArrayList getWeightByIndex(int Camada, int neuronio){
+        return this.listOfCamadas.get(Camada).getNeuronioByIndex(neuronio).getWeights();
+    }
+    
+    public ArrayList getWeightByIndex(int Camada) {
+        return this.listOfCamadas.get(Camada).getWeights();
+    }
+    
 }

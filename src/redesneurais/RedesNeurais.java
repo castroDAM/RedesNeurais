@@ -32,6 +32,10 @@ public class RedesNeurais {
         
         MLP mlp = new MLP(entradas, camadas, neuronios, func);
         System.out.println(mlp.toString());
+        
+        mlp.getWeightByIndex(2);
+        mlp.getWeightByIndex(2, 2);
+        mlp.getWeightByIndex(2, 2, 1);
     }
     
 }

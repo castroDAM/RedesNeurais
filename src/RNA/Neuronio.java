@@ -8,6 +8,8 @@ package RNA;
 import RNA.Interfaces.NeuronioInterface;
 import Functions.Interfaces.*;
 import Functions.Enums.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -57,6 +59,11 @@ public class Neuronio implements NeuronioInterface{
         retorno += "Neurônio " + this.ID;
         retorno += "\nNumero de entradas = " + this.numEntradas;
         retorno += "\nFunção de Ativação = " + Function.getNameFunction();
+        retorno += "\n[ ";
+        for(int i=0; i<this.numEntradas; i++){
+            retorno += "  Entrada " + i + " = " + this.Pesos[i] + ";  ";
+        }
+        retorno +="]";
         
         return retorno;
     }
@@ -90,8 +97,17 @@ public class Neuronio implements NeuronioInterface{
         return retorno;
     }
     
-    public double[] getWeights(){
-        return this.Pesos;
+    public double getWeightByInput(int input){
+        return this.Pesos[input];
+    }
+    
+    public ArrayList getWeights(){
+        ArrayList retorno = new ArrayList();
+        for(int i=0; i<this.numEntradas; i++){
+            retorno.add(this.Pesos[i]);
+        }
+        
+        return retorno;
     }
     
     public void setWeights(double[] pesos){
