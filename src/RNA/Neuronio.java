@@ -97,10 +97,19 @@ public class Neuronio implements NeuronioInterface{
         return retorno;
     }
     
+    /**
+     * Pega os pesos de uma entrada específica do neuronio
+     * @param input entrada específica
+     * @return Pesos sinaptico correspondente
+     */
     public double getWeightByInput(int input){
         return this.Pesos[input];
     }
     
+    /**
+     * Pega todos os pesos do neuronio
+     * @return Pesos de todas as entradas
+     */
     public ArrayList getWeights(){
         ArrayList retorno = new ArrayList();
         for(int i=0; i<this.numEntradas; i++){
@@ -110,8 +119,21 @@ public class Neuronio implements NeuronioInterface{
         return retorno;
     }
     
+    /**
+     * Altera o valor de todos os pesos das entradas
+     * @param pesos vetor de pesos
+     */
     public void setWeights(double[] pesos){
         this.Pesos = pesos;
+    }
+    
+    /**
+     * Seta o peso de uma entrada específica
+     * @param input entrada
+     * @param peso valor do peso
+     */
+    public void setWeightByInput(int input, double peso){
+        this.Pesos[input] = peso;
     }
     
 }

@@ -77,7 +77,7 @@ public class Camada implements NeuronioInterface{
     }
     
     /**
-     * Pegar os pesos sinápticos correspondentes a camada. A ordem do retorno é dado pelos neurônios. Ex: Uma camada com 4 neurônio e 2 entradas. O retorno 
+     * Pegar os pesos sinápticos correspondentes a camada. A ordem do retorno é dado pelos neurônios. Ex: Uma camada com 4 neurônios e 2 entradas. O retorno 
      * será dado na seguinte ordem : 2 Pesos do primeiro Neuronio, 2 Pesos do segundo neurônio, 2 Pesos do terceiro neurônio e 2 Pesos do quarto neurônio,  
      * @return Pesos Sinápticos correspondentes da camada
      */
@@ -90,4 +90,15 @@ public class Camada implements NeuronioInterface{
         return pesos;
     }
     
+    /**
+     *  Seta todos os neuronios da camada especificada. A ordem do retorno é dado pelos neurônios. Ex: Uma camada com 4 neurônios e 2 entradas, a atribuição 
+     * será dada na seguinte ordem : 2 Pesos do primeiro Neuronio, 2 Pesos do segundo neurônio, 2 Pesos do terceiro neurônio e 2 Pesos do quarto neurônio,
+     * @param pesos Lista de Pesos Sinapticos
+     */
+    public void setWeights(ArrayList pesos){
+        for(int i=0; i<this.listOfNeuronios.size(); i++){
+            this.listOfNeuronios.get(i).setWeights((double[]) pesos.get(i));
+        }
+            
+    }
 }
